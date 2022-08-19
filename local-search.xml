@@ -4,63 +4,36 @@
   
   
   <entry>
-    <title>练习</title>
-    <link href="/2022/08/09/%E7%BB%83%E4%B9%A0/"/>
-    <url>/2022/08/09/%E7%BB%83%E4%B9%A0/</url>
+    <title>git连接github超时以及缓慢</title>
+    <link href="/2022/08/19/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <url>/2022/08/19/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
     
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>老铁！今天盘一个深拷贝</title>
-    <link href="/2022/07/23/js%E6%89%8B%E5%86%99/%E8%80%81%E9%93%81%EF%BC%81%E4%BB%8A%E5%A4%A9%E7%9B%98%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
-    <url>/2022/07/23/js%E6%89%8B%E5%86%99/%E8%80%81%E9%93%81%EF%BC%81%E4%BB%8A%E5%A4%A9%E7%9B%98%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
-    
-    <content type="html"><![CDATA[<h1 id="多的不说先上代码"><a href="#多的不说先上代码" class="headerlink" title="多的不说先上代码"></a>多的不说先上代码</h1><p>&#x2F;&#x2F;obj给个初始值<br>function deepClone (obj&#x3D;{},map &#x3D; new Map()) {<br>     1&#x2F;边界判断 为什么用typeof 应为涉及到回顾下js判断引用值和原始值的原因<br>     if(typeof（obj）！&#x3D;&#x3D; Object){<br>       return obj；<br>     }</p><pre><code class="hljs">为啥用map。防止重复循环 if(map.get(obj))&#123;   return map.get(obj) &#125;let result=&#123;&#125;;if(    obj instanceof Array ||    Object.prototype.toString.call(obj) === &quot;[object Array]&quot;)&#123;result = [];&#125;for(const key in obj)&#123;     if(obj.hasOwnProperty(key))&#123;      result[key] = deepClone(obj[key],map);    &#125;&#125;map.set(obj,result);return result;</code></pre><p>}</p><p>function deepClone(obj,map &#x3D; new Map()){<br>if(typeof(obj) !&#x3D;&#x3D; “Object”){<br>  return obj;<br>}<br>if(map.get(obj)){<br>   return map.get(obj)<br>}<br>let result &#x3D; {};</p><p>if(<br>  obj instanceof Array  ||<br>  Object.protoutype.toString.Call(obj) &#x3D;&#x3D;&#x3D;”[Object Array]”<br>  ){<br>  result &#x3D; [];<br>}</p><p>mep.set(obj,result) </p><p>for(const key in obj){<br>  if(obj.hasOwnPerporty(key)){<br>   result[key] &#x3D; deepClone(obj[key],map);<br>  }<br>}</p><p>return result;</p><p>}</p><p>function debounce (fn,wait){<br>  let timer &#x3D; null;<br>  retun function(){<br>    let that &#x3D; this;<br>    let args &#x3D; argument;</p><p>  if(timer)clearTimerOut(timer);</p><p>  timer &#x3D;  settiomout(()&#x3D;&gt;{<br>     fn.apply(that,args);<br>   },wait)</p><p>  }</p><p>}</p><p>function throttlt(fu,wait){<br>  let timer &#x3D; null;<br>  retun function(){<br>    let that &#x3D; this;<br>    let args &#x3D; arguments;<br>    if(!timer){<br>        timer &#x3D; setTimeOut(()&#x3D;&gt;{<br>          timer &#x3D; null;<br>          fn.apply(that,args)<br>        },wait)<br>    }<br>  }<br>}</p><p>function flat(arr,depth &#x3D; 1){<br>if(depth){<br>   return arr.reduce((per,cur)&#x3D;&gt;{<br>      return per.concat(Array.isArray(cur)?flat(cur,depth - 1) : cur)<br>   },[])<br>}<br>return arr.slice();<br>}</p><p>function flat(arr,depth &#x3D; 1){<br>  if(depth &gt; 0){<br>     return arr.reduce((per,cur)&#x3D;&gt;{<br>       return  per.concat(Array.isArray(cur)?flat(cur,depth -1 ):cur)<br>     },[])<br>  }<br>  console.log(arr)<br>  return arr;<br>}</p><p>function flat(arr,deep &#x3D; 1){<br>  if(deep &gt; 0){<br>     return arr.reduce((per,cur)&#x3D;&gt;{<br>     return per.concat(Array.isArray(cur)?falt(cur,deep - 1):cur)<br>  },[])<br>  }<br> return arr.slice();<br>}</p>]]></content>
+    <content type="html"><![CDATA[<p>由于今天改动完提交git代码时老是请求超时，开了梯子也不行于是找了一个方法完美解决顺便记录下<br>ping github.com<br>PING github.com (192.30.253.112): 56 data bytes<br>64 bytes from 192.30.253.112: icmp_seq&#x3D;0 ttl&#x3D;47 time&#x3D;245.930 ms<br>64 bytes from 192.30.253.112: icmp_seq&#x3D;1 ttl&#x3D;47 time&#x3D;245.910 ms<br>记录ip 192.30.253.112</p><p>得到ip 在host中添加即可<br>$ sudo vim&#x2F;etc&#x2F;hosts<br>192.30.253.112 github.com<br>151.101.113.194 github.global.ssl.fastly.net</p><p>　最后更新DNS缓存</p><p>$ sudo dscacheutil -flushcache</p>]]></content>
     
     
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>防抖节流</title>
-    <link href="/2022/07/23/js%E6%89%8B%E5%86%99/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
-    <url>/2022/07/23/js%E6%89%8B%E5%86%99/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
-    
-    <content type="html"><![CDATA[<p>防抖： 连续触发只执行最后点击的那一次<br>function(func,wait){</p><p>let timer &#x3D; null;</p><p>return function(){<br>    var that &#x3D; this;<br>    clearTimeout(timer);<br>    var args &#x3D; arguments;<br>    timer &#x3D; settimeout(()&#x3D;&gt;{<br>    func.apply(that,agrs);<br>    },wait);</p><p>}</p><p>}<br>节流：连续触发每隔一段时间执行一次</p><p>function throttle(func,wait){<br>let timer &#x3D; null;</p><p>if(timer) clearTimeout(timer)</p><p>return function(){<br>      let  that &#x3D; this;<br>      let argus &#x3D; grguments;<br>      if(!timer){<br>      timer&#x3D; setTimeout(()&#x3D;&gt;{<br>           timer &#x3D; null;<br>           func.apply(that,argus);<br>       })<br>      }</p><p>}<br>}</p><p>function debounce(func,wait){<br>let timer &#x3D; null;</p><p>return function(){<br>    let that&#x3D;this;<br>    let argus &#x3D; arguments;<br>    clearTimeOut(timer);<br>timer &#x3D; setTimeout(()&#x3D;&gt;{<br>    fun.apply(that,argus);<br>},wait)<br>}</p><p>}</p>]]></content>
+    <categories>
+      
+      <category>问题汇总</category>
+      
+    </categories>
     
     
+    <tags>
+      
+      <tag>问题</tag>
+      
+    </tags>
     
   </entry>
   
   
   
   <entry>
-    <title>Http回顾</title>
-    <link href="/2022/07/21/Http%E5%9B%9E%E9%A1%BE/Http%E5%9B%9E%E9%A1%BE/"/>
-    <url>/2022/07/21/Http%E5%9B%9E%E9%A1%BE/Http%E5%9B%9E%E9%A1%BE/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>history</title>
+    <title>前端路由</title>
     <link href="/2022/06/21/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/"/>
     <url>/2022/06/21/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>关于前端路由主要分为 Hash 还有就是history 这两种</p><h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>hash 主要是使用#分割，当页面切换时不会刷新页面<br>onChange是更改他的方法<br>由于切换页面不刷新所以受SPA的青睐设为默认路由</p><p>history 主要是通过配置路由来进行跳转，跳转时页面会发生Http请求，所以比较掉性能，如果没有配置地址则请求失败code返回404（页面不存在）</p>]]></content>
     
     
     

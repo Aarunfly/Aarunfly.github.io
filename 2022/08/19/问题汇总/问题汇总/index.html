@@ -16,21 +16,22 @@
   <meta name="author" content="Aarunfly">
   <meta name="keywords" content="">
   
-    <meta name="description" content="多的不说先上代码&#x2F;&#x2F;obj给个初始值function deepClone (obj&#x3D;{},map &#x3D; new Map()) {     1&#x2F;边界判断 为什么用typeof 应为涉及到回顾下js判断引用值和原始值的原因     if(typeof（obj）！&#x3D;&#x3D; Object){       return obj；     } 为">
+    <meta name="description" content="由于今天改动完提交git代码时老是请求超时，开了梯子也不行于是找了一个方法完美解决顺便记录下ping github.comPING github.com (192.30.253.112): 56 data bytes64 bytes from 192.30.253.112: icmp_seq&#x3D;0 ttl&#x3D;47 time&#x3D;245.930 ms64 bytes from">
 <meta property="og:type" content="article">
-<meta property="og:title" content="老铁！今天盘一个深拷贝">
-<meta property="og:url" content="http://example.com/2022/07/23/js%E6%89%8B%E5%86%99/%E8%80%81%E9%93%81%EF%BC%81%E4%BB%8A%E5%A4%A9%E7%9B%98%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/index.html">
+<meta property="og:title" content="git连接github超时以及缓慢">
+<meta property="og:url" content="http://example.com/2022/08/19/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="伊家飞">
-<meta property="og:description" content="多的不说先上代码&#x2F;&#x2F;obj给个初始值function deepClone (obj&#x3D;{},map &#x3D; new Map()) {     1&#x2F;边界判断 为什么用typeof 应为涉及到回顾下js判断引用值和原始值的原因     if(typeof（obj）！&#x3D;&#x3D; Object){       return obj；     } 为">
+<meta property="og:description" content="由于今天改动完提交git代码时老是请求超时，开了梯子也不行于是找了一个方法完美解决顺便记录下ping github.comPING github.com (192.30.253.112): 56 data bytes64 bytes from 192.30.253.112: icmp_seq&#x3D;0 ttl&#x3D;47 time&#x3D;245.930 ms64 bytes from">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-23T08:59:48.000Z">
-<meta property="article:modified_time" content="2022-08-09T00:47:52.243Z">
+<meta property="article:published_time" content="2022-08-19T15:02:01.000Z">
+<meta property="article:modified_time" content="2022-08-19T15:07:23.710Z">
 <meta property="article:author" content="Aarunfly">
+<meta property="article:tag" content="问题">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>老铁！今天盘一个深拷贝 - 伊家飞</title>
+  <title>git连接github超时以及缓慢 - 伊家飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -193,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="老铁！今天盘一个深拷贝"></span>
+            <span id="subtitle" data-typed-text="git连接github超时以及缓慢"></span>
           
         </div>
 
@@ -204,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-23 16:59" pubdate>
-          2022年7月23日 下午
+        <time datetime="2022-08-19 23:02" pubdate>
+          2022年8月19日 晚上
         </time>
       </span>
     
@@ -216,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          407 字
         
       </span>
     
@@ -227,7 +228,7 @@
         
         
         
-          15 分钟
+          4 分钟
         
       </span>
     
@@ -273,50 +274,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">老铁！今天盘一个深拷贝</h1>
+            <h1 style="display: none">git连接github超时以及缓慢</h1>
             
             <div class="markdown-body">
               
-              <h1 id="多的不说先上代码"><a href="#多的不说先上代码" class="headerlink" title="多的不说先上代码"></a>多的不说先上代码</h1><p>&#x2F;&#x2F;obj给个初始值<br>function deepClone (obj&#x3D;{},map &#x3D; new Map()) {<br>     1&#x2F;边界判断 为什么用typeof 应为涉及到回顾下js判断引用值和原始值的原因<br>     if(typeof（obj）！&#x3D;&#x3D; Object){<br>       return obj；<br>     }</p>
-<pre><code class="hljs">为啥用map。防止重复循环
- if(map.get(obj))&#123;
-   return map.get(obj)
- &#125;
-
-let result=&#123;&#125;;
-
-if(
-    obj instanceof Array ||
-    Object.prototype.toString.call(obj) === &quot;[object Array]&quot;
-)&#123;
-result = [];
-&#125;
-
-
-for(const key in obj)&#123; 
-    if(obj.hasOwnProperty(key))&#123;
-      result[key] = deepClone(obj[key],map);
-    &#125;
-&#125;
-map.set(obj,result);
-return result;
-</code></pre>
-<p>}</p>
-<p>function deepClone(obj,map &#x3D; new Map()){<br>if(typeof(obj) !&#x3D;&#x3D; “Object”){<br>  return obj;<br>}<br>if(map.get(obj)){<br>   return map.get(obj)<br>}<br>let result &#x3D; {};</p>
-<p>if(<br>  obj instanceof Array  ||<br>  Object.protoutype.toString.Call(obj) &#x3D;&#x3D;&#x3D;”[Object Array]”<br>  ){<br>  result &#x3D; [];<br>}</p>
-<p>mep.set(obj,result) </p>
-<p>for(const key in obj){<br>  if(obj.hasOwnPerporty(key)){<br>   result[key] &#x3D; deepClone(obj[key],map);<br>  }<br>}</p>
-<p>return result;</p>
-<p>}</p>
-<p>function debounce (fn,wait){<br>  let timer &#x3D; null;<br>  retun function(){<br>    let that &#x3D; this;<br>    let args &#x3D; argument;</p>
-<p>  if(timer)clearTimerOut(timer);</p>
-<p>  timer &#x3D;  settiomout(()&#x3D;&gt;{<br>     fn.apply(that,args);<br>   },wait)</p>
-<p>  }</p>
-<p>}</p>
-<p>function throttlt(fu,wait){<br>  let timer &#x3D; null;<br>  retun function(){<br>    let that &#x3D; this;<br>    let args &#x3D; arguments;<br>    if(!timer){<br>        timer &#x3D; setTimeOut(()&#x3D;&gt;{<br>          timer &#x3D; null;<br>          fn.apply(that,args)<br>        },wait)<br>    }<br>  }<br>}</p>
-<p>function flat(arr,depth &#x3D; 1){<br>if(depth){<br>   return arr.reduce((per,cur)&#x3D;&gt;{<br>      return per.concat(Array.isArray(cur)?flat(cur,depth - 1) : cur)<br>   },[])<br>}<br>return arr.slice();<br>}</p>
-<p>function flat(arr,depth &#x3D; 1){<br>  if(depth &gt; 0){<br>     return arr.reduce((per,cur)&#x3D;&gt;{<br>       return  per.concat(Array.isArray(cur)?flat(cur,depth -1 ):cur)<br>     },[])<br>  }<br>  console.log(arr)<br>  return arr;<br>}</p>
-<p>function flat(arr,deep &#x3D; 1){<br>  if(deep &gt; 0){<br>     return arr.reduce((per,cur)&#x3D;&gt;{<br>     return per.concat(Array.isArray(cur)?falt(cur,deep - 1):cur)<br>  },[])<br>  }<br> return arr.slice();<br>}</p>
+              <p>由于今天改动完提交git代码时老是请求超时，开了梯子也不行于是找了一个方法完美解决顺便记录下<br>ping github.com<br>PING github.com (192.30.253.112): 56 data bytes<br>64 bytes from 192.30.253.112: icmp_seq&#x3D;0 ttl&#x3D;47 time&#x3D;245.930 ms<br>64 bytes from 192.30.253.112: icmp_seq&#x3D;1 ttl&#x3D;47 time&#x3D;245.910 ms<br>记录ip 192.30.253.112</p>
+<p>得到ip 在host中添加即可<br>$ sudo vim&#x2F;etc&#x2F;hosts<br>192.30.253.112 github.com<br>151.101.113.194 github.global.ssl.fastly.net</p>
+<p>　最后更新DNS缓存</p>
+<p>$ sudo dscacheutil -flushcache</p>
 
               
             </div>
@@ -324,6 +289,34 @@ return result;
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="category-chain-item">问题汇总</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%97%AE%E9%A2%98/">#问题</a>
+      
+    </div>
   
 </div>
 
@@ -333,8 +326,8 @@ return result;
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>老铁！今天盘一个深拷贝</div>
-      <div>http://example.com/2022/07/23/js手写/老铁！今天盘一个深拷贝/</div>
+      <div>git连接github超时以及缓慢</div>
+      <div>http://example.com/2022/08/19/问题汇总/问题汇总/</div>
     </div>
     <div class="license-meta">
       
@@ -346,7 +339,7 @@ return result;
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月23日</div>
+          <div>2022年8月19日</div>
         </div>
       
       
@@ -376,18 +369,12 @@ return result;
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/09/%E7%BB%83%E4%B9%A0/" title="练习">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">练习</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/23/js%E6%89%8B%E5%86%99/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" title="防抖节流">
-                        <span class="hidden-mobile">防抖节流</span>
+                      <a href="/2022/06/21/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/" title="前端路由">
+                        <span class="hidden-mobile">前端路由</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

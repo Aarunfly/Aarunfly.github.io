@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>练习</title>
+    <link href="/2022/08/09/%E7%BB%83%E4%B9%A0/"/>
+    <url>/2022/08/09/%E7%BB%83%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>老铁！今天盘一个深拷贝</title>
+    <link href="/2022/07/23/js%E6%89%8B%E5%86%99/%E8%80%81%E9%93%81%EF%BC%81%E4%BB%8A%E5%A4%A9%E7%9B%98%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    <url>/2022/07/23/js%E6%89%8B%E5%86%99/%E8%80%81%E9%93%81%EF%BC%81%E4%BB%8A%E5%A4%A9%E7%9B%98%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    
+    <content type="html"><![CDATA[<h1 id="多的不说先上代码"><a href="#多的不说先上代码" class="headerlink" title="多的不说先上代码"></a>多的不说先上代码</h1><p>&#x2F;&#x2F;obj给个初始值<br>function deepClone (obj&#x3D;{},map &#x3D; new Map()) {<br>     1&#x2F;边界判断 为什么用typeof 应为涉及到回顾下js判断引用值和原始值的原因<br>     if(typeof（obj）！&#x3D;&#x3D; Object){<br>       return obj；<br>     }</p><pre><code class="hljs">为啥用map。防止重复循环 if(map.get(obj))&#123;   return map.get(obj) &#125;let result=&#123;&#125;;if(    obj instanceof Array ||    Object.prototype.toString.call(obj) === &quot;[object Array]&quot;)&#123;result = [];&#125;for(const key in obj)&#123;     if(obj.hasOwnProperty(key))&#123;      result[key] = deepClone(obj[key],map);    &#125;&#125;map.set(obj,result);return result;</code></pre><p>}</p><p>function deepClone(obj,map &#x3D; new Map()){<br>if(typeof(obj) !&#x3D;&#x3D; “Object”){<br>  return obj;<br>}<br>if(map.get(obj)){<br>   return map.get(obj)<br>}<br>let result &#x3D; {};</p><p>if(<br>  obj instanceof Array  ||<br>  Object.protoutype.toString.Call(obj) &#x3D;&#x3D;&#x3D;”[Object Array]”<br>  ){<br>  result &#x3D; [];<br>}</p><p>mep.set(obj,result) </p><p>for(const key in obj){<br>  if(obj.hasOwnPerporty(key)){<br>   result[key] &#x3D; deepClone(obj[key],map);<br>  }<br>}</p><p>return result;</p><p>}</p><p>function debounce (fn,wait){<br>  let timer &#x3D; null;<br>  retun function(){<br>    let that &#x3D; this;<br>    let args &#x3D; argument;</p><p>  if(timer)clearTimerOut(timer);</p><p>  timer &#x3D;  settiomout(()&#x3D;&gt;{<br>     fn.apply(that,args);<br>   },wait)</p><p>  }</p><p>}</p><p>function throttlt(fu,wait){<br>  let timer &#x3D; null;<br>  retun function(){<br>    let that &#x3D; this;<br>    let args &#x3D; arguments;<br>    if(!timer){<br>        timer &#x3D; setTimeOut(()&#x3D;&gt;{<br>          timer &#x3D; null;<br>          fn.apply(that,args)<br>        },wait)<br>    }<br>  }<br>}</p><p>function flat(arr,depth &#x3D; 1){<br>if(depth){<br>   return arr.reduce((per,cur)&#x3D;&gt;{<br>      return per.concat(Array.isArray(cur)?flat(cur,depth - 1) : cur)<br>   },[])<br>}<br>return arr.slice();<br>}</p><p>function flat(arr,depth &#x3D; 1){<br>  if(depth &gt; 0){<br>     return arr.reduce((per,cur)&#x3D;&gt;{<br>       return  per.concat(Array.isArray(cur)?flat(cur,depth -1 ):cur)<br>     },[])<br>  }<br>  console.log(arr)<br>  return arr;<br>}</p><p>function flat(arr,deep &#x3D; 1){<br>  if(deep &gt; 0){<br>     return arr.reduce((per,cur)&#x3D;&gt;{<br>     return per.concat(Array.isArray(cur)?falt(cur,deep - 1):cur)<br>  },[])<br>  }<br> return arr.slice();<br>}</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>防抖节流</title>
+    <link href="/2022/07/23/js%E6%89%8B%E5%86%99/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
+    <url>/2022/07/23/js%E6%89%8B%E5%86%99/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
+    
+    <content type="html"><![CDATA[<p>防抖： 连续触发只执行最后点击的那一次<br>function(func,wait){</p><p>let timer &#x3D; null;</p><p>return function(){<br>    var that &#x3D; this;<br>    clearTimeout(timer);<br>    var args &#x3D; arguments;<br>    timer &#x3D; settimeout(()&#x3D;&gt;{<br>    func.apply(that,agrs);<br>    },wait);</p><p>}</p><p>}<br>节流：连续触发每隔一段时间执行一次</p><p>function throttle(func,wait){<br>let timer &#x3D; null;</p><p>if(timer) clearTimeout(timer)</p><p>return function(){<br>      let  that &#x3D; this;<br>      let argus &#x3D; grguments;<br>      if(!timer){<br>      timer&#x3D; setTimeout(()&#x3D;&gt;{<br>           timer &#x3D; null;<br>           func.apply(that,argus);<br>       })<br>      }</p><p>}<br>}</p><p>function debounce(func,wait){<br>let timer &#x3D; null;</p><p>return function(){<br>    let that&#x3D;this;<br>    let argus &#x3D; arguments;<br>    clearTimeOut(timer);<br>timer &#x3D; setTimeout(()&#x3D;&gt;{<br>    fun.apply(that,argus);<br>},wait)<br>}</p><p>}</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Http回顾</title>
+    <link href="/2022/07/21/Http%E5%9B%9E%E9%A1%BE/Http%E5%9B%9E%E9%A1%BE/"/>
+    <url>/2022/07/21/Http%E5%9B%9E%E9%A1%BE/Http%E5%9B%9E%E9%A1%BE/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>history</title>
+    <link href="/2022/06/21/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/"/>
+    <url>/2022/06/21/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>算法小探</title>
+    <link href="/2022/06/15/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95/"/>
+    <url>/2022/06/15/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>安利一波资源 拉布拉多整挺好： <a href="https://labuladong.github.io/algo/1/">https://labuladong.github.io/algo/1/</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>功能说明</title>
+    <link href="/2022/06/14/%E5%BB%BA%E7%AB%99%E8%AF%B4%E6%98%8E/"/>
+    <url>/2022/06/14/%E5%BB%BA%E7%AB%99%E8%AF%B4%E6%98%8E/</url>
+    
+    <content type="html"><![CDATA[<p>此次建站主要是因为云服务器到期以及域名释放，为跟随公司降本增效策略，三思后决定使用 github page 来搭建我的记录平台</p><!-- ## Quick Start --><!-- ### Create a new post --><!-- ``` bash$ hexo new "My New Post"<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>More info: [Writing](https:<span class="hljs-regexp">//</span>hexo.io<span class="hljs-regexp">/docs/</span>writing.html)<br><br><span class="hljs-comment">### Run server</span><br><br>``` bash<br>$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a> –&gt;</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>说明</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>说明</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

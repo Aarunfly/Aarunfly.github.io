@@ -16,21 +16,22 @@
   <meta name="author" content="Aarunfly">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关于前端路由主要分为 Hash 还有就是history 这两种 区别hash 主要是使用#分割，当页面切换时不会刷新页面onChange是更改他的方法由于切换页面不刷新所以受SPA的青睐设为默认路由 history 主要是通过配置路由来进行跳转，跳转时页面会发生Http请求，所以比较掉性能，如果没有配置地址则请求失败code返回404（页面不存在）">
+    <meta name="description" content="1.0短链接无host断电无法重连1.1增加缓存增加host增加长连接数据包形式传输2多路复用二进制分帧头部压缩服务端推送（server push）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端路由">
-<meta property="og:url" content="http://example.com/2022/06/21/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/index.html">
+<meta property="og:title" content="http 1.0&#x2F;1.1&#x2F;2">
+<meta property="og:url" content="http://example.com/2022/07/14/%E7%BD%91%E7%BB%9C/http/index.html">
 <meta property="og:site_name" content="伊家飞">
-<meta property="og:description" content="关于前端路由主要分为 Hash 还有就是history 这两种 区别hash 主要是使用#分割，当页面切换时不会刷新页面onChange是更改他的方法由于切换页面不刷新所以受SPA的青睐设为默认路由 history 主要是通过配置路由来进行跳转，跳转时页面会发生Http请求，所以比较掉性能，如果没有配置地址则请求失败code返回404（页面不存在）">
+<meta property="og:description" content="1.0短链接无host断电无法重连1.1增加缓存增加host增加长连接数据包形式传输2多路复用二进制分帧头部压缩服务端推送（server push）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-21T10:38:06.000Z">
-<meta property="article:modified_time" content="2022-08-19T14:35:21.981Z">
+<meta property="article:published_time" content="2022-07-14T08:23:23.000Z">
+<meta property="article:modified_time" content="2022-08-20T13:58:23.758Z">
 <meta property="article:author" content="Aarunfly">
+<meta property="article:tag" content="http">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>前端路由 - 伊家飞</title>
+  <title>http 1.0/1.1/2 - 伊家飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -193,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="前端路由"></span>
+            <span id="subtitle" data-typed-text="http 1.0/1.1/2"></span>
           
         </div>
 
@@ -204,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-21 18:38" pubdate>
-          2022年6月21日 晚上
+        <time datetime="2022-07-14 16:23" pubdate>
+          2022年7月14日 下午
         </time>
       </span>
     
@@ -216,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          168 字
+          73 字
         
       </span>
     
@@ -227,7 +228,7 @@
         
         
         
-          2 分钟
+          1 分钟
         
       </span>
     
@@ -273,20 +274,45 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">前端路由</h1>
+            <h1 style="display: none">http 1.0/1.1/2</h1>
             
             <div class="markdown-body">
               
-              <p>关于前端路由主要分为 Hash 还有就是history 这两种</p>
-<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>hash 主要是使用#分割，当页面切换时不会刷新页面<br>onChange是更改他的方法<br>由于切换页面不刷新所以受SPA的青睐设为默认路由</p>
-<p>history 主要是通过配置路由来进行跳转，跳转时页面会发生Http请求，所以比较掉性能，如果没有配置地址则请求失败code返回404（页面不存在）</p>
-
+              <h1 id="1-0"><a href="#1-0" class="headerlink" title="1.0"></a>1.0</h1><h2 id="短链接"><a href="#短链接" class="headerlink" title="短链接"></a>短链接</h2><h2 id="无host"><a href="#无host" class="headerlink" title="无host"></a>无host</h2><h2 id="断电无法重连"><a href="#断电无法重连" class="headerlink" title="断电无法重连"></a>断电无法重连</h2><h1 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h1><h2 id="增加缓存"><a href="#增加缓存" class="headerlink" title="增加缓存"></a>增加缓存</h2><h2 id="增加host"><a href="#增加host" class="headerlink" title="增加host"></a>增加host</h2><h2 id="增加长连接"><a href="#增加长连接" class="headerlink" title="增加长连接"></a>增加长连接</h2><h2 id="数据包形式传输"><a href="#数据包形式传输" class="headerlink" title="数据包形式传输"></a>数据包形式传输</h2><h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><h2 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h2><h2 id="二进制分帧"><a href="#二进制分帧" class="headerlink" title="二进制分帧"></a>二进制分帧</h2><h2 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h2><h2 id="服务端推送（server-push）"><a href="#服务端推送（server-push）" class="headerlink" title="服务端推送（server push）"></a>服务端推送（server push）</h2>
               
             </div>
             <hr/>
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BD%91%E7%BB%9C/" class="category-chain-item">网络</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/http/">#http</a>
+      
+    </div>
   
 </div>
 
@@ -296,8 +322,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>前端路由</div>
-      <div>http://example.com/2022/06/21/前端路由/</div>
+      <div>http 1.0/1.1/2</div>
+      <div>http://example.com/2022/07/14/网络/http/</div>
     </div>
     <div class="license-meta">
       
@@ -309,7 +335,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月21日</div>
+          <div>2022年7月14日</div>
         </div>
       
       
@@ -339,9 +365,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/14/%E7%BD%91%E7%BB%9C/http/" title="http 1.0/1.1/2">
+                      <a href="/2022/08/19/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="git连接github超时以及缓慢">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">http 1.0/1.1/2</span>
+                        <span class="hidden-mobile">git连接github超时以及缓慢</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -349,8 +375,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95/" title="算法小探">
-                        <span class="hidden-mobile">算法小探</span>
+                      <a href="/2022/06/21/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/" title="前端路由">
+                        <span class="hidden-mobile">前端路由</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

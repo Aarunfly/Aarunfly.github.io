@@ -24,7 +24,7 @@
 <meta property="og:description" content="从理解到落地深拷贝function deepClone(obj,map &#x3D; new Map()){    &#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回if(typeof obj !&#x3D;&#x3D; ‘Object’ ){   return obj;} &#x2F;&#x2F;map（key可以为对象特点）防止自己对自己属性赋值导致无限递归 if(map.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-14T08:23:23.000Z">
-<meta property="article:modified_time" content="2022-08-21T02:38:50.812Z">
+<meta property="article:modified_time" content="2022-08-21T02:50:08.848Z">
 <meta property="article:author" content="Aarunfly">
 <meta property="article:tag" content="手写">
 <meta name="twitter:card" content="summary_large_image">
@@ -286,7 +286,7 @@
 <p>&#x2F;&#x2F; 核心递归<br>for(const key in obj){<br>    &#x2F;&#x2F; hasOwnProperty() 查看该属性是否在此对象中<br>    if(obj.hasOwnProperty(key)){<br>        result[key] &#x3D; deepClone(obj[key])<br>    }<br>}</p>
 <p>return result;<br>}</p>
 <h2 id="数组拍平"><a href="#数组拍平" class="headerlink" title="数组拍平"></a>数组拍平</h2><p>function falt(arr,deep &#x3D; 1){<br>    if(deep&gt;0){<br>       return arr.reduce((per,cur)&#x3D;&gt;{<br>            return per.concat(Array.isArray(cur)?falt(cur):cur)<br>       },[])<br>    }<br>    return arr.slice();<br>}</p>
-<h2 id="数组驱虫"><a href="#数组驱虫" class="headerlink" title="数组驱虫"></a>数组驱虫</h2><p>function uniqueArray(arr){<br> let slow &#x3D; 0;<br> let fast &#x3D; 0;<br> let result &#x3D; [];<br> whlie(fast &lt; arr.length){<br>    if(arr[slow] &#x3D;&#x3D; arr[fast]){<br>        fast++;<br>    }else{<br>        slow++;<br>        arr[slow] &#x3D; arr[fast];<br>        result.push(arr[fast])<br>    }<br> }<br> return result;&#x2F;&#x2F;去重数组<br> return slow+1；&#x2F;&#x2F;不重复元素个数<br>}</p>
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><p>function uniqueArray(arr){<br> let slow &#x3D; 0;<br> let fast &#x3D; 0;<br> let result &#x3D; [];<br> whlie(fast &lt; arr.length){<br>    if(arr[slow] &#x3D;&#x3D; arr[fast]){<br>        fast++;<br>    }else{<br>        slow++;<br>        arr[slow] &#x3D; arr[fast];<br>        result.push(arr[fast])<br>    }<br> }<br> return result;&#x2F;&#x2F;去重数组<br> return slow+1；&#x2F;&#x2F;不重复元素个数<br>}</p>
 <h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><p>let obj &#x3D; {};<br>let input &#x3D; document.getElementById(‘input’);<br>let span &#x3D; document.getElementById(‘span’);<br>Object.defineProperty(obj,’text’,{<br>    configurable: true,<br>    enumerable: true,<br>    get(){<br>     console.log(‘数据获取了’）<br>    }<br>    set(newVal){<br>    console.log(‘数据更新了’)<br>    input.value &#x3D; newVal;<br>    span.innerHTML &#x3D;newVal;<br>    }<br>})<br> input.addEvenLisener(‘keyup’,(e)&#x3D;&gt;{<br>       obj.text &#x3D; e.target.value<br>    })</p>
 
               

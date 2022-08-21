@@ -16,22 +16,22 @@
   <meta name="author" content="Aarunfly">
   <meta name="keywords" content="">
   
-    <meta name="description" content="从理解到落地深拷贝function deepClone(obj,map &#x3D; new Map()){    &#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回if(typeof obj !&#x3D;&#x3D; ‘Object’ ){   return obj;} &#x2F;&#x2F;map（key可以为对象特点）防止自己对自己属性赋值导致无限递归 if(map.">
+    <meta name="description" content="1XX资源正在请求中2XX200 资源请求成功204 资源请求成功但无资源返回3XX301 永久重定向302 临时重定向304 协商缓存4XX400 服务端无法解析http请求语法401 未授权 需要验证身份403 服务器拒接访问404 页面资源未找到（一般路由配置出现）5XX500 服务器内部错误503 服务器无法使用 或者挂了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="功能说明">
-<meta property="og:url" content="http://example.com/2022/06/14/js%E6%89%8B%E5%86%99/%E5%BB%BA%E7%AB%99%E8%AF%B4%E6%98%8E/index.html">
+<meta property="og:title" content="已知状态码">
+<meta property="og:url" content="http://example.com/2022/07/16/%E7%BD%91%E7%BB%9C/status%20code/index.html">
 <meta property="og:site_name" content="伊家飞">
-<meta property="og:description" content="从理解到落地深拷贝function deepClone(obj,map &#x3D; new Map()){    &#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回if(typeof obj !&#x3D;&#x3D; ‘Object’ ){   return obj;} &#x2F;&#x2F;map（key可以为对象特点）防止自己对自己属性赋值导致无限递归 if(map.">
+<meta property="og:description" content="1XX资源正在请求中2XX200 资源请求成功204 资源请求成功但无资源返回3XX301 永久重定向302 临时重定向304 协商缓存4XX400 服务端无法解析http请求语法401 未授权 需要验证身份403 服务器拒接访问404 页面资源未找到（一般路由配置出现）5XX500 服务器内部错误503 服务器无法使用 或者挂了">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-14T08:23:23.000Z">
-<meta property="article:modified_time" content="2022-08-21T00:03:49.971Z">
+<meta property="article:published_time" content="2022-07-16T14:23:23.000Z">
+<meta property="article:modified_time" content="2022-08-21T02:22:27.670Z">
 <meta property="article:author" content="Aarunfly">
-<meta property="article:tag" content="手写">
+<meta property="article:tag" content="http">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>功能说明 - 伊家飞</title>
+  <title>已知状态码 - 伊家飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="功能说明"></span>
+            <span id="subtitle" data-typed-text="已知状态码"></span>
           
         </div>
 
@@ -205,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-14 16:23" pubdate>
-          2022年6月14日 下午
+        <time datetime="2022-07-16 22:23" pubdate>
+          2022年7月16日 晚上
         </time>
       </span>
     
@@ -217,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          153 字
         
       </span>
     
@@ -228,7 +228,7 @@
         
         
         
-          9 分钟
+          2 分钟
         
       </span>
     
@@ -274,20 +274,11 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">功能说明</h1>
+            <h1 style="display: none">已知状态码</h1>
             
             <div class="markdown-body">
               
-              <h1 id="从理解到落地"><a href="#从理解到落地" class="headerlink" title="从理解到落地"></a>从理解到落地</h1><h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>function deepClone(obj,map &#x3D; new Map()){<br>    &#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回<br>if(typeof obj !&#x3D;&#x3D; ‘Object’ ){<br>   return obj;<br>}</p>
-<p>&#x2F;&#x2F;map（key可以为对象特点）防止自己对自己属性赋值导致无限递归</p>
-<p>if(map.get(obj)){<br>   return map.get(obj);<br>}</p>
-<p>let result &#x3D; {};<br> &#x2F;&#x2F;判断是否为数组方法 Array.isArray()、Object.protoutype.toString.calll() &#x3D;&#x3D;&#x3D; ‘[Object array]’、 不能使用 instanceof 来检测数组 （不严谨）<br>if(<br>    Array.isArray(obj) ||<br>    Object.protoutype.toString.call(obj) &#x3D;&#x3D;&#x3D; “[Object array]”<br>    ){<br>     result &#x3D; []<br>}</p>
-<p>map.set(result,obj)</p>
-<p>&#x2F;&#x2F; 核心递归<br>for(const key in obj){<br>    &#x2F;&#x2F; hasOwnProperty() 查看该属性是否在此对象中<br>    if(obj.hasOwnProperty(key)){<br>        result[key] &#x3D; deepClone(obj[key])<br>    }<br>}</p>
-<p>return result;<br>}</p>
-<h2 id="数组拍平"><a href="#数组拍平" class="headerlink" title="数组拍平"></a>数组拍平</h2><p>function falt(arr,deep &#x3D; 1){<br>    if(deep&gt;0){<br>       return arr.reduce((per,cur)&#x3D;&gt;{<br>            return per.concat(Array.isArray(cur)?falt(cur):cur)<br>       },[])<br>    }<br>    return arr.slice();<br>}</p>
-<h2 id="数组驱虫"><a href="#数组驱虫" class="headerlink" title="数组驱虫"></a>数组驱虫</h2><p>function uniqueArray(arr){<br> let slow &#x3D; 0;<br> let fast &#x3D; 0;<br> let result &#x3D; [];<br> whlie(fast &lt; arr.length){<br>    if(arr[slow] &#x3D;&#x3D; arr[fast]){<br>        fast++;<br>    }else{<br>        slow++;<br>        arr[slow] &#x3D; arr[fast];<br>        result.push(arr[fast])<br>    }<br> }<br> return result;&#x2F;&#x2F;去重数组<br> return slow+1；&#x2F;&#x2F;不重复元素个数<br>}</p>
-
+              <h1 id="1XX"><a href="#1XX" class="headerlink" title="1XX"></a>1XX</h1><h2 id="资源正在请求中"><a href="#资源正在请求中" class="headerlink" title="资源正在请求中"></a>资源正在请求中</h2><h1 id="2XX"><a href="#2XX" class="headerlink" title="2XX"></a>2XX</h1><h2 id="200-资源请求成功"><a href="#200-资源请求成功" class="headerlink" title="200 资源请求成功"></a>200 资源请求成功</h2><h2 id="204-资源请求成功但无资源返回"><a href="#204-资源请求成功但无资源返回" class="headerlink" title="204 资源请求成功但无资源返回"></a>204 资源请求成功但无资源返回</h2><h1 id="3XX"><a href="#3XX" class="headerlink" title="3XX"></a>3XX</h1><h2 id="301-永久重定向"><a href="#301-永久重定向" class="headerlink" title="301 永久重定向"></a>301 永久重定向</h2><h2 id="302-临时重定向"><a href="#302-临时重定向" class="headerlink" title="302 临时重定向"></a>302 临时重定向</h2><h2 id="304-协商缓存"><a href="#304-协商缓存" class="headerlink" title="304 协商缓存"></a>304 协商缓存</h2><h1 id="4XX"><a href="#4XX" class="headerlink" title="4XX"></a>4XX</h1><h1 id="400-服务端无法解析http请求语法"><a href="#400-服务端无法解析http请求语法" class="headerlink" title="400 服务端无法解析http请求语法"></a>400 服务端无法解析http请求语法</h1><h1 id="401-未授权-需要验证身份"><a href="#401-未授权-需要验证身份" class="headerlink" title="401 未授权 需要验证身份"></a>401 未授权 需要验证身份</h1><h1 id="403-服务器拒接访问"><a href="#403-服务器拒接访问" class="headerlink" title="403 服务器拒接访问"></a>403 服务器拒接访问</h1><h1 id="404-页面资源未找到（一般路由配置出现）"><a href="#404-页面资源未找到（一般路由配置出现）" class="headerlink" title="404 页面资源未找到（一般路由配置出现）"></a>404 页面资源未找到（一般路由配置出现）</h1><h1 id="5XX"><a href="#5XX" class="headerlink" title="5XX"></a>5XX</h1><h1 id="500-服务器内部错误"><a href="#500-服务器内部错误" class="headerlink" title="500 服务器内部错误"></a>500 服务器内部错误</h1><h1 id="503-服务器无法使用-或者挂了"><a href="#503-服务器无法使用-或者挂了" class="headerlink" title="503 服务器无法使用 或者挂了"></a>503 服务器无法使用 或者挂了</h1>
               
             </div>
             <hr/>
@@ -304,7 +295,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/js%E6%89%8B%E5%86%99/" class="category-chain-item">js手写</a>
+  <a href="/categories/%E7%BD%91%E7%BB%9C/" class="category-chain-item">网络</a>
   
   
 
@@ -319,7 +310,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%89%8B%E5%86%99/">#手写</a>
+        <a href="/tags/http/">#http</a>
       
     </div>
   
@@ -331,8 +322,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>功能说明</div>
-      <div>http://example.com/2022/06/14/js手写/建站说明/</div>
+      <div>已知状态码</div>
+      <div>http://example.com/2022/07/16/网络/status code/</div>
     </div>
     <div class="license-meta">
       
@@ -344,7 +335,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月14日</div>
+          <div>2022年7月16日</div>
         </div>
       
       
@@ -374,15 +365,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/14/%E5%BB%BA%E7%AB%99%E8%AF%B4%E6%98%8E/" title="功能说明">
+                      <a href="/2022/08/02/%E7%BD%91%E7%BB%9C/header%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5/" title="header字段">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">功能说明</span>
+                        <span class="hidden-mobile">header字段</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/07/14/%E7%BD%91%E7%BB%9C/http/" title="http 1.0/1.1/2">
+                        <span class="hidden-mobile">http 1.0/1.1/2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

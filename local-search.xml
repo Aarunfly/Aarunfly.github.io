@@ -29,6 +29,56 @@
   
   
   <entry>
+    <title>header字段</title>
+    <link href="/2022/08/02/%E7%BD%91%E7%BB%9C/header%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5/"/>
+    <url>/2022/08/02/%E7%BD%91%E7%BB%9C/header%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5/</url>
+    
+    <content type="html"><![CDATA[<p>Accept             客户端-&gt;服务端    客户端期望服务器返回的媒体格式<br>Accept-Charset     客户端-&gt;服务端   客户端期望服务器返回的内容的编码格式<br>Content-Type       服务端-&gt;客户端    代表内容的媒体类型和编码格式<br>Accept-Language    客户端-&gt;服务端    返回的语言<br>Content-Language   服务端-&gt;客户端    告知客户端返回内容的语言<br>Content-Length     服务端-&gt;客户端    告知客户端返回内容的长度   get请求没有body所以没有<br>Expires            服务端-&gt;客户端     服务器使用Expect头来告知对方资源何时失效。如果它的值等于Date头的值，就表示资源已经实效   Expires: Thu, 01 Dec 1994 16:00:00 GMT<br>ETag               资源标签     一般用来和If-Match和If-None-Match配合使用，用来判断缓存资源的有效性<br>If-Match           值一般是上面提到的ETag的值<br>If-None-Match      类似于If-Match，只是条件相反<br>Connection         当客户端和服务器需要协商连接的属性时，可以使用Connection头部。比较常用的一个值是close，用来通知对方在当前请求结束后关闭连接。<br>Host               RFC协议规定所有的HTTP请求必须携带Host头，即使Host没有值，也必须带上这个Host头附加一个空串，如果不满足，应用服务器应该抛出400 Bad Request<br>Last-Modified      标记资源的最近修改时间，它和Date比较类似，区别是Last-Modified代表修改时间，而Date是创建时间。<br>If-Modified-Since  浏览器向服务器请求静态资源时，如果浏览器本地已经有了缓存，就会携带If-Modified-Since头，值为资源的Last-Modified时间，询问服务器该资源自从这个Last-Modified时间之后有没有被修改。如果没有修改过，就会向浏览器返回304 Not Modified通知浏览器可以放心使用缓存内的资源。如果资源修改过，那就像正常的GET请求一样，携带资源的内容返回200 OK。<br>Range              支持断点续传的服务器必须处理Range头，它表示客户端请求资源的一部分时指定的请求字节范围。它是客户端向服务器发送的请求头。     Range: bytes&#x3D;500-999<br>Transfer-Encoding  传送Body信息时需要对Body数据采取何种变换。当HTTP对Body进行分块传送时，需要增加下面的头部信息才可以进行分块传送。其它类型目前没有遇到过。<br>Referer            Referer是非常常用的头，它表示请求的发起来源URI，也就是当前页面资源的父页面</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>http</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>已知状态码</title>
+    <link href="/2022/07/16/%E7%BD%91%E7%BB%9C/status%20code/"/>
+    <url>/2022/07/16/%E7%BD%91%E7%BB%9C/status%20code/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1XX"><a href="#1XX" class="headerlink" title="1XX"></a>1XX</h1><h2 id="资源正在请求中"><a href="#资源正在请求中" class="headerlink" title="资源正在请求中"></a>资源正在请求中</h2><h1 id="2XX"><a href="#2XX" class="headerlink" title="2XX"></a>2XX</h1><h2 id="200-资源请求成功"><a href="#200-资源请求成功" class="headerlink" title="200 资源请求成功"></a>200 资源请求成功</h2><h2 id="204-资源请求成功但无资源返回"><a href="#204-资源请求成功但无资源返回" class="headerlink" title="204 资源请求成功但无资源返回"></a>204 资源请求成功但无资源返回</h2><h1 id="3XX"><a href="#3XX" class="headerlink" title="3XX"></a>3XX</h1><h2 id="301-永久重定向"><a href="#301-永久重定向" class="headerlink" title="301 永久重定向"></a>301 永久重定向</h2><h2 id="302-临时重定向"><a href="#302-临时重定向" class="headerlink" title="302 临时重定向"></a>302 临时重定向</h2><h2 id="304-协商缓存"><a href="#304-协商缓存" class="headerlink" title="304 协商缓存"></a>304 协商缓存</h2><h1 id="4XX"><a href="#4XX" class="headerlink" title="4XX"></a>4XX</h1><h1 id="400-服务端无法解析http请求语法"><a href="#400-服务端无法解析http请求语法" class="headerlink" title="400 服务端无法解析http请求语法"></a>400 服务端无法解析http请求语法</h1><h1 id="401-未授权-需要验证身份"><a href="#401-未授权-需要验证身份" class="headerlink" title="401 未授权 需要验证身份"></a>401 未授权 需要验证身份</h1><h1 id="403-服务器拒接访问"><a href="#403-服务器拒接访问" class="headerlink" title="403 服务器拒接访问"></a>403 服务器拒接访问</h1><h1 id="404-页面资源未找到（一般路由配置出现）"><a href="#404-页面资源未找到（一般路由配置出现）" class="headerlink" title="404 页面资源未找到（一般路由配置出现）"></a>404 页面资源未找到（一般路由配置出现）</h1><h1 id="5XX"><a href="#5XX" class="headerlink" title="5XX"></a>5XX</h1><h1 id="500-服务器内部错误"><a href="#500-服务器内部错误" class="headerlink" title="500 服务器内部错误"></a>500 服务器内部错误</h1><h1 id="503-服务器无法使用-或者挂了"><a href="#503-服务器无法使用-或者挂了" class="headerlink" title="503 服务器无法使用 或者挂了"></a>503 服务器无法使用 或者挂了</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>http</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>http 1.0/1.1/2</title>
     <link href="/2022/07/14/%E7%BD%91%E7%BB%9C/http/"/>
     <url>/2022/07/14/%E7%BD%91%E7%BB%9C/http/</url>
@@ -117,11 +167,11 @@
   
   
   <entry>
-    <title>功能说明</title>
-    <link href="/2022/06/14/js%E6%89%8B%E5%86%99/%E5%BB%BA%E7%AB%99%E8%AF%B4%E6%98%8E/"/>
-    <url>/2022/06/14/js%E6%89%8B%E5%86%99/%E5%BB%BA%E7%AB%99%E8%AF%B4%E6%98%8E/</url>
+    <title>手写记录</title>
+    <link href="/2022/06/14/js%E6%89%8B%E5%86%99/js%E6%89%8B%E5%86%99%E8%AE%B0%E5%BD%95/"/>
+    <url>/2022/06/14/js%E6%89%8B%E5%86%99/js%E6%89%8B%E5%86%99%E8%AE%B0%E5%BD%95/</url>
     
-    <content type="html"><![CDATA[<h1 id="从理解到落地"><a href="#从理解到落地" class="headerlink" title="从理解到落地"></a>从理解到落地</h1><h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>function deepClone(obj,map &#x3D; new Map()){<br>    &#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回<br>if(typeof obj !&#x3D;&#x3D; ‘Object’ ){<br>   return obj;<br>}</p><p>&#x2F;&#x2F;map（key可以为对象特点）防止自己对自己属性赋值导致无限递归</p><p>if(map.get(obj)){<br>   return map.get(obj);<br>}</p><p>let result &#x3D; {};<br> &#x2F;&#x2F;判断是否为数组方法 Array.isArray()、Object.protoutype.toString.calll() &#x3D;&#x3D;&#x3D; ‘[Object array]’、 不能使用 instanceof 来检测数组 （不严谨）<br>if(<br>    Array.isArray(obj) ||<br>    Object.protoutype.toString.call(obj) &#x3D;&#x3D;&#x3D; “[Object array]”<br>    ){<br>     result &#x3D; []<br>}</p><p>map.set(result,obj)</p><p>&#x2F;&#x2F; 核心递归<br>for(const key in obj){<br>    &#x2F;&#x2F; hasOwnProperty() 查看该属性是否在此对象中<br>    if(obj.hasOwnProperty(key)){<br>        result[key] &#x3D; deepClone(obj[key])<br>    }<br>}</p><p>return result;<br>}</p><h2 id="数组拍平"><a href="#数组拍平" class="headerlink" title="数组拍平"></a>数组拍平</h2><p>function falt(arr,deep &#x3D; 1){<br>    if(deep&gt;0){<br>       return arr.reduce((per,cur)&#x3D;&gt;{<br>            return per.concat(Array.isArray(cur)?falt(cur):cur)<br>       },[])<br>    }<br>    return arr.slice();<br>}</p><h2 id="数组驱虫"><a href="#数组驱虫" class="headerlink" title="数组驱虫"></a>数组驱虫</h2><p>function uniqueArray(arr){<br> let slow &#x3D; 0;<br> let fast &#x3D; 0;<br> let result &#x3D; [];<br> whlie(fast &lt; arr.length){<br>    if(arr[slow] &#x3D;&#x3D; arr[fast]){<br>        fast++;<br>    }else{<br>        slow++;<br>        arr[slow] &#x3D; arr[fast];<br>        result.push(arr[fast])<br>    }<br> }<br> return result;&#x2F;&#x2F;去重数组<br> return slow+1；&#x2F;&#x2F;不重复元素个数<br>}</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="从理解到落地"><a href="#从理解到落地" class="headerlink" title="从理解到落地"></a>从理解到落地</h1><h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>function deepClone(obj,map &#x3D; new Map()){<br>    &#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回<br>if(typeof obj !&#x3D;&#x3D; ‘Object’ ){<br>   return obj;<br>}</p><p>&#x2F;&#x2F;map（key可以为对象特点）防止自己对自己属性赋值导致无限递归</p><p>if(map.get(obj)){<br>   return map.get(obj);<br>}</p><p>let result &#x3D; {};<br> &#x2F;&#x2F;判断是否为数组方法 Array.isArray()、Object.protoutype.toString.calll() &#x3D;&#x3D;&#x3D; ‘[Object array]’、 不能使用 instanceof 来检测数组 （不严谨）<br>if(<br>    Array.isArray(obj) ||<br>    Object.protoutype.toString.call(obj) &#x3D;&#x3D;&#x3D; “[Object array]”<br>    ){<br>     result &#x3D; []<br>}</p><p>map.set(result,obj)</p><p>&#x2F;&#x2F; 核心递归<br>for(const key in obj){<br>    &#x2F;&#x2F; hasOwnProperty() 查看该属性是否在此对象中<br>    if(obj.hasOwnProperty(key)){<br>        result[key] &#x3D; deepClone(obj[key])<br>    }<br>}</p><p>return result;<br>}</p><h2 id="数组拍平"><a href="#数组拍平" class="headerlink" title="数组拍平"></a>数组拍平</h2><p>function falt(arr,deep &#x3D; 1){<br>    if(deep&gt;0){<br>       return arr.reduce((per,cur)&#x3D;&gt;{<br>            return per.concat(Array.isArray(cur)?falt(cur):cur)<br>       },[])<br>    }<br>    return arr.slice();<br>}</p><h2 id="数组驱虫"><a href="#数组驱虫" class="headerlink" title="数组驱虫"></a>数组驱虫</h2><p>function uniqueArray(arr){<br> let slow &#x3D; 0;<br> let fast &#x3D; 0;<br> let result &#x3D; [];<br> whlie(fast &lt; arr.length){<br>    if(arr[slow] &#x3D;&#x3D; arr[fast]){<br>        fast++;<br>    }else{<br>        slow++;<br>        arr[slow] &#x3D; arr[fast];<br>        result.push(arr[fast])<br>    }<br> }<br> return result;&#x2F;&#x2F;去重数组<br> return slow+1；&#x2F;&#x2F;不重复元素个数<br>}</p><h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><p>let obj &#x3D; {};<br>let input &#x3D; document.getElementById(‘input’);<br>let span &#x3D; document.getElementById(‘span’);<br>Object.defineProperty(obj,’text’,{<br>    configurable: true,<br>    enumerable: true,<br>    get(){<br>     console.log(‘数据获取了’）<br>    }<br>    set(newVal){<br>    console.log(‘数据更新了’)<br>    input.value &#x3D; newVal;<br>    span.innerHTML &#x3D;newVal;<br>    }<br>})<br> input.addEvenLisener(‘keyup’,(e)&#x3D;&gt;{<br>       obj.text &#x3D; e.target.value<br>    })</p>]]></content>
     
     
     <categories>

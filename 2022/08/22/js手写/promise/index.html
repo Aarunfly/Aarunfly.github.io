@@ -16,22 +16,19 @@
   <meta name="author" content="Aarunfly">
   <meta name="keywords" content="">
   
-    <meta name="description" content="从理解到落地深拷贝function deepClone(obj,map &#x3D; new Map()){&#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回if(typeof obj !&#x3D;&#x3D; ‘Object’ ){return obj;} &#x2F;&#x2F;map（key 可以为对象特点）防止自己对自己属性赋值导致无限递归 if(map.get(ob">
-<meta property="og:type" content="article">
-<meta property="og:title" content="手写记录">
-<meta property="og:url" content="http://example.com/2022/06/14/js%E6%89%8B%E5%86%99/js%E6%89%8B%E5%86%99%E8%AE%B0%E5%BD%95/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="伊家飞">
+<meta property="og:url" content="http://example.com/2022/08/22/js%E6%89%8B%E5%86%99/promise/index.html">
 <meta property="og:site_name" content="伊家飞">
-<meta property="og:description" content="从理解到落地深拷贝function deepClone(obj,map &#x3D; new Map()){&#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回if(typeof obj !&#x3D;&#x3D; ‘Object’ ){return obj;} &#x2F;&#x2F;map（key 可以为对象特点）防止自己对自己属性赋值导致无限递归 if(map.get(ob">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-14T08:23:23.000Z">
-<meta property="article:modified_time" content="2022-08-25T12:12:09.736Z">
+<meta property="article:published_time" content="2022-08-22T00:54:23.511Z">
+<meta property="article:modified_time" content="2022-08-25T12:50:03.040Z">
 <meta property="article:author" content="Aarunfly">
-<meta property="article:tag" content="手写">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>手写记录 - 伊家飞</title>
+  <title>伊家飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +191,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="手写记录"></span>
+            <span id="subtitle" data-typed-text=""></span>
           
         </div>
 
@@ -205,8 +202,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-14 16:23" pubdate>
-          2022年6月14日 下午
+        <time datetime="2022-08-22 08:54" pubdate>
+          2022年8月22日 早上
         </time>
       </span>
     
@@ -217,7 +214,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          0 字
         
       </span>
     
@@ -228,7 +225,7 @@
         
         
         
-          20 分钟
+          1 分钟
         
       </span>
     
@@ -274,27 +271,45 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">手写记录</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body">
               
-              <h1 id="从理解到落地"><a href="#从理解到落地" class="headerlink" title="从理解到落地"></a>从理解到落地</h1><h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>function deepClone(obj,map &#x3D; new Map()){<br>&#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回<br>if(typeof obj !&#x3D;&#x3D; ‘Object’ ){<br>return obj;<br>}</p>
-<p>&#x2F;&#x2F;map（key 可以为对象特点）防止自己对自己属性赋值导致无限递归</p>
-<p>if(map.get(obj)){<br>return map.get(obj);<br>}</p>
-<p>let result &#x3D; {};<br>&#x2F;&#x2F;判断是否为数组方法 Array.isArray()、Object.protoutype.toString.calll() &#x3D;&#x3D;&#x3D; ‘[Object array]’、 不能使用 instanceof 来检测数组 （不严谨）<br>if(<br>Array.isArray(obj) ||<br>Object.protoutype.toString.call(obj) &#x3D;&#x3D;&#x3D; “[Object array]”<br>){<br>result &#x3D; []<br>}</p>
-<p>map.set(result,obj)</p>
-<p>&#x2F;&#x2F; 核心递归<br>for(const key in obj){<br>&#x2F;&#x2F; hasOwnProperty() 查看该属性是否在此对象中<br>if(obj.hasOwnProperty(key)){<br>result[key] &#x3D; deepClone(obj[key])<br>}<br>}</p>
-<p>return result;<br>}</p>
-<h2 id="数组拍平"><a href="#数组拍平" class="headerlink" title="数组拍平"></a>数组拍平</h2><p>function falt(arr,deep &#x3D; 1){<br>if(deep&gt;0){<br>return arr.reduce((per,cur)&#x3D;&gt;{<br>return per.concat(Array.isArray(cur)?falt(cur):cur)<br>},[])<br>}<br>return arr.slice();<br>}</p>
-<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><p>function uniqueArray(arr){<br>let slow &#x3D; 0;<br>let fast &#x3D; 0;<br>let result &#x3D; [];<br>whlie(fast &lt; arr.length){<br>if(arr[slow] &#x3D;&#x3D; arr[fast]){<br>fast++;<br>}else{<br>slow++;<br>arr[slow] &#x3D; arr[fast];<br>result.push(arr[fast])<br>}<br>}<br>return result;&#x2F;&#x2F;去重数组<br>return slow+1；&#x2F;&#x2F;不重复元素个数<br>}</p>
-<h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><p>let obj &#x3D; {};<br>let input &#x3D; document.getElementById(‘input’);<br>let span &#x3D; document.getElementById(‘span’);<br>Object.defineProperty(obj,’text’,{<br>configurable: true,<br>enumerable: true,<br>get(){<br>console.log(‘数据获取了’）<br>}<br>set(newVal){<br>console.log(‘数据更新了’)<br>input.value &#x3D; newVal;<br>span.innerHTML &#x3D;newVal;<br>}<br>})<br>input.addEvenLisener(‘keyup’,(e)&#x3D;&gt;{<br>obj.text &#x3D; e.target.value<br>})</p>
-<h2 id="reduce-求和"><a href="#reduce-求和" class="headerlink" title="reduce 求和"></a>reduce 求和</h2><p>function sum(arr){<br>return arr.reduce((per,cur)&#x3D;&gt;{<br>return per+cur<br>},0)<br>}</p>
-<h2 id="将-js-对象转化成树形结构"><a href="#将-js-对象转化成树形结构" class="headerlink" title="将 js 对象转化成树形结构"></a>将 js 对象转化成树形结构</h2><p>const arr &#x3D; [{<br>name:’中国’,<br>id:1,<br>parentId:0<br>},{<br>name:’北京’,<br>id:2,<br>parentId:1<br>},{<br>name:’上海’,<br>id:3,<br>parentId:1<br>},{<br>name:’台湾’,<br>id:4,<br>parentId:1<br>},{<br>name:’钓鱼岛’,<br>id:5,<br>parentId:4<br>}]</p>
-<p>function toTree(data,key &#x3D; ‘id’,parentId &#x3D; 0){<br>&#x2F;&#x2F;边界值判断 非数组返回<br>if(!Array.isArray(data)){<br>return data<br>}</p>
-<p>&#x2F;&#x2F;边界值判断 数组元素为 1 返回<br>if(data.length &#x3D;&#x3D; 1){<br>return data;<br>}</p>
-<p>let result &#x3D; [];<br>循环整个数组需找<br>date.forEach((item)&#x3D;&gt;{<br>&#x2F;&#x2F;符合条件 当循环 item 的 id 符合于当层 parentId 进入下一层递归<br>if(item.id &#x3D;&#x3D; parentId){<br>&#x2F;&#x2F;符合条件给当前 item 增加一属性 children 并递归赋值，第三个参数是下一层需要寻找的 id 值<br>item.children &#x3D; toTree(data,key,item[key])<br>result.push(item)<br>}<br>})<br>return result;<br>}</p>
-<p>setTimeout 模拟 setInterval</p>
-<p>function mySetInterval(fn,time){<br>let timer &#x3D; null;<br>const interval &#x3D; ()&#x3D;&gt;{<br>trimer &#x3D; setTimeout(()&#x3D;&gt;{<br>fn();<br>interval();<br>},time)<br>}<br>interval();<br>return ()&#x3D;&gt;clearTimeOut(timer)<br>}</p>
+              <!-- class MyPromise(){
+    constructor(executer){
+      this.initValue();
+      this.initBind();
+      executer(this.resolve(),this.reject())
+    }
+    initBind(){
+     this.resolve = this.resolve.bind(this);
+     this.reject = this.reject.bind(this);
+    }
+
+    initValue(){
+      this.PromiseResult = null;
+      this.PromiseStatus = 'Pending'
+    }
+
+    resolve(value){
+        if(this.PromiseStatus !== 'Pending')  return;
+        this.PromiseStatus = 'fulfilled';
+        this.PromiseResult = value;
+    }
+
+    reject(reason){
+         if(this.PromiseStatus !== 'Pending')  return;
+        this.PromiseStatus = 'reject';
+        this.PromiseResult =  reason
+    }
+
+try{
+   executer(this.reslove(),this.reject())
+}catch{
+    this.reject()
+}
+
+} -->
 
               
             </div>
@@ -302,34 +317,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/js%E6%89%8B%E5%86%99/" class="category-chain-item">js手写</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E6%89%8B%E5%86%99/">#手写</a>
-      
-    </div>
   
 </div>
 
@@ -339,8 +326,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>手写记录</div>
-      <div>http://example.com/2022/06/14/js手写/js手写记录/</div>
+      <div></div>
+      <div>http://example.com/2022/08/22/js手写/promise/</div>
     </div>
     <div class="license-meta">
       
@@ -352,7 +339,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月14日</div>
+          <div>2022年8月22日</div>
         </div>
       
       
@@ -382,15 +369,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/14/%E5%BB%BA%E7%AB%99%E8%AF%B4%E6%98%8E/" title="功能说明">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">功能说明</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/08/19/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="git连接github超时以及缓慢">
+                        <span class="hidden-mobile">git连接github超时以及缓慢</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

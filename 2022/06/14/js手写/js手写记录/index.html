@@ -24,7 +24,7 @@
 <meta property="og:description" content="从理解到落地深拷贝function deepClone(obj,map &#x3D; new Map()){&#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回if(typeof obj !&#x3D;&#x3D; ‘Object’ ){return obj;} &#x2F;&#x2F;map（key 可以为对象特点）防止自己对自己属性赋值导致无限递归 if(map.get(ob">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-14T08:23:23.000Z">
-<meta property="article:modified_time" content="2022-08-25T12:12:09.736Z">
+<meta property="article:modified_time" content="2022-08-29T15:00:26.984Z">
 <meta property="article:author" content="Aarunfly">
 <meta property="article:tag" content="手写">
 <meta name="twitter:card" content="summary_large_image">
@@ -217,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.7k 字
         
       </span>
     
@@ -228,7 +228,7 @@
         
         
         
-          20 分钟
+          23 分钟
         
       </span>
     
@@ -295,6 +295,30 @@
 <p>let result &#x3D; [];<br>循环整个数组需找<br>date.forEach((item)&#x3D;&gt;{<br>&#x2F;&#x2F;符合条件 当循环 item 的 id 符合于当层 parentId 进入下一层递归<br>if(item.id &#x3D;&#x3D; parentId){<br>&#x2F;&#x2F;符合条件给当前 item 增加一属性 children 并递归赋值，第三个参数是下一层需要寻找的 id 值<br>item.children &#x3D; toTree(data,key,item[key])<br>result.push(item)<br>}<br>})<br>return result;<br>}</p>
 <p>setTimeout 模拟 setInterval</p>
 <p>function mySetInterval(fn,time){<br>let timer &#x3D; null;<br>const interval &#x3D; ()&#x3D;&gt;{<br>trimer &#x3D; setTimeout(()&#x3D;&gt;{<br>fn();<br>interval();<br>},time)<br>}<br>interval();<br>return ()&#x3D;&gt;clearTimeOut(timer)<br>}</p>
+<h2 id="let-str-x3D-‘aabbcdadeef’-output-3a2b1c2d3e1f"><a href="#let-str-x3D-‘aabbcdadeef’-output-3a2b1c2d3e1f" class="headerlink" title="let str &#x3D; ‘aabbcdadeef’; output: 3a2b1c2d3e1f ;"></a>let str &#x3D; ‘aabbcdadeef’; output: 3a2b1c2d3e1f ;</h2><p>function demo(str,map &#x3D; new Map()){<br>let arr &#x3D; str.split(‘’);</p>
+<pre><code class="hljs">   let resultStr = &#39;&#39;;
+arr.forEach((item, index) =&gt; &#123;
+    if (map.get(item)) &#123;
+
+        let num = map.get(item) + 1;
+
+        map.set(item,num)
+
+    &#125; else &#123;
+
+         map.set(item,1)
+      &#125;
+
+&#125;);
+
+
+map.forEach((item,key) =&gt; &#123;
+
+    resultStr += item + &#39;&#39; + key;
+&#125;)
+console.log(resultStr);
+</code></pre>
+<p>return resultStr;<br>}<br>demo(str);</p>
 
               
             </div>

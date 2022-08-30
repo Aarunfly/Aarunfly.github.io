@@ -24,7 +24,7 @@
 <meta property="og:description" content="从理解到落地深拷贝function deepClone(obj,map &#x3D; new Map()){&#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回if(typeof obj !&#x3D;&#x3D; ‘Object’ ){return obj;} &#x2F;&#x2F;map（key 可以为对象特点）防止自己对自己属性赋值导致无限递归 if(map.get(ob">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-14T08:23:23.000Z">
-<meta property="article:modified_time" content="2022-08-30T13:24:40.147Z">
+<meta property="article:modified_time" content="2022-08-30T13:37:39.474Z">
 <meta property="article:author" content="Aarunfly">
 <meta property="article:tag" content="手写">
 <meta name="twitter:card" content="summary_large_image">
@@ -217,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          3.9k 字
         
       </span>
     
@@ -228,7 +228,7 @@
         
         
         
-          32 分钟
+          33 分钟
         
       </span>
     
@@ -352,6 +352,7 @@ addTask(400, &quot;4&quot;);
 // 800ms 时，3 完成，输出 3，任务 4 入队。
 // 1000ms 时，1 完成，输出 1。
 </code></pre>
+<h2 id="手写-reduce"><a href="#手写-reduce" class="headerlink" title="手写 reduce"></a>手写 reduce</h2><p>Array.protoutype.myReduce&#x3D; functio(cb,value){<br>let arr &#x3D; this;<br>let total &#x3D; value || arr[0];<br>for(let i &#x3D; value?0:1;i &lt; arr.length; i++){<br>total &#x3D; cb(total,arr[i],i,arr);<br>}<br>return total;<br>}</p>
 
               
             </div>

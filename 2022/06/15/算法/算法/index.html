@@ -24,7 +24,7 @@
 <meta property="og:description" content="安利一波资源 拉布拉多整挺好： https:&#x2F;&#x2F;labuladong.github.io&#x2F;algo&#x2F;1&#x2F; 两数之和var twoSum &#x3D; function(numbers, target) {let left &#x3D;0, right &#x3D; numbers.length - 1;while(left &lt; right){let sum &#x3D; numbers[le">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-15T08:23:23.000Z">
-<meta property="article:modified_time" content="2022-08-25T12:49:32.192Z">
+<meta property="article:modified_time" content="2022-08-30T09:44:59.324Z">
 <meta property="article:author" content="Aarunfly">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary_large_image">
@@ -217,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          807 字
+          1.2k 字
         
       </span>
     
@@ -228,7 +228,7 @@
         
         
         
-          7 分钟
+          11 分钟
         
       </span>
     
@@ -290,6 +290,22 @@
 <p>},{ id:’1’,<br>children:[{id:’2-1’}]<br>}];</p>
 <p>function getDeep(arr){<br> let res &#x3D; 0;<br>let deep &#x3D; 0;<br>const dfs &#x3D; (arr) &#x3D;&gt; {<br>arr.forEach(item &#x3D;&gt; {<br>if (item.children &amp;&amp; item.children.length &gt; 0) {<br>deep++<br>dfs(item.children);<br>deep–<br>} else {<br>res &#x3D; Math.max(res,deep)<br>}<br>});<br>}<br>dfs(arr);<br>console.log(res);<br>return res;<br>}</p>
 <p>getDeep(a);</p>
+<h2 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h2><p>var permute &#x3D; function(nums) {<br>const res &#x3D; [];<br>const trackSet &#x3D; new Set();</p>
+<pre><code class="hljs">backtrack(nums, trackSet, res);
+return res;
+</code></pre>
+<p>};</p>
+<p>function backtrack(nums, trackSet, res){<br>if (trackSet.size &#x3D;&#x3D;&#x3D; nums.length){<br>res.push([…trackSet]);<br>return ;<br>}</p>
+<pre><code class="hljs">for (let i = 0; i &lt; nums.length; i++)&#123;
+    if (trackSet.has(nums[i]))&#123;
+        continue;
+    &#125;
+    trackSet.add(nums[i]);
+    backtrack(nums, trackSet, res);
+    trackSet.delete(nums[i]);
+&#125;
+</code></pre>
+<p>}</p>
 
               
             </div>

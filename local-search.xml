@@ -5,35 +5,10 @@
   
   <entry>
     <title>webpack</title>
-    <link href="/2022/09/06/webpack/sourcemap/"/>
-    <url>/2022/09/06/webpack/sourcemap/</url>
-    
-    <content type="html"><![CDATA[<p>背景：当页面报错时页面输出错误位置为编译后的位置，如果代码量大则不好定位编译打包前源代码位置，此时就需要其对源代码生成映射关系快速定位错误行和列<br>源代码映射<br>配置项为devtool<br>一般开发环境下使用cheap-module-source-map：打包编译速度快，只包含行映射<br>生产环境下使用source-map包含行列映射，缺点是打包编译速度更慢</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>webpack</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>webpack sourcemap 作用以及配置项</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>webpack</title>
     <link href="/2022/09/06/webpack/webpack/"/>
     <url>/2022/09/06/webpack/webpack/</url>
     
-    <content type="html"><![CDATA[<h1 id="1、两种开发模式"><a href="#1、两种开发模式" class="headerlink" title="1、两种开发模式"></a>1、两种开发模式</h1><p>  开发模式：代码编译自动化运行<br>  生产模式：代码编译优化输出</p><h1 id="2、webpack基本功能"><a href="#2、webpack基本功能" class="headerlink" title="2、webpack基本功能"></a>2、webpack基本功能</h1><p>  开发模式：可以编译es moudule语法<br>  生产模式：可以编译es moudule语法，压缩js代码</p><h1 id="3、webpack配置文件"><a href="#3、webpack配置文件" class="headerlink" title="3、webpack配置文件"></a>3、webpack配置文件</h1><p>通过配置项逐步对代码使用loader进行编译规范、解析、处理非js资源等 以及使用plugin插件对代码进行压缩、兼容性处理、样式单位转化等功能、</p><h1 id="五个核心概念"><a href="#五个核心概念" class="headerlink" title="五个核心概念"></a>五个核心概念</h1><h2 id="enter"><a href="#enter" class="headerlink" title="enter"></a>enter</h2><p> 确定配置项入口文件</p><h2 id="output"><a href="#output" class="headerlink" title="output"></a>output</h2><p> 确定打包输出路径以及文件结构<br> 清空上一次打包文件防止代码沉积 （clear：true）</p><h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p> 预处理js等非js资源（解析）需要安装各种loader以及配置</p><h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><p> 对需要处理的文件资源优化（性能、体积、协助编译（px转rem等）、代码规范esLint（webpack4中以loader形式引入）、本地静态资源图片、css压缩、）<br> 可将css文件单独抽离文件夹使用link加载解决了页面初始化闪屏问题（原打包文件是将js、css等文件资源打包到了同一个文件中，所以在加载js时页面没有渲染，等加载完毕时在渲染css则页面突然闪屏）<br> 使用commen.js规范引入 其值是一个函数，使用时需在plugins中new操作处理</p><h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><p> 划分开发生产模式下操作</p><h1 id="devServer配置"><a href="#devServer配置" class="headerlink" title="devServer配置"></a>devServer配置</h1><p>使用server可指定编译地址端口号启动服务并在本地进行代码热更新（自动化）<br>webpack-dev-server<br>自动化编译时代码不会打包输出，所以打包路经文件夹下没有新的更新代码</p><h1 id="4、webpack脚本指令用法"><a href="#4、webpack脚本指令用法" class="headerlink" title="4、webpack脚本指令用法"></a>4、webpack脚本指令用法</h1><p> webpack直接打包输出<br> webpack Serve 启动开发服务器，内存编译打包没有输出</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="1、两种开发模式"><a href="#1、两种开发模式" class="headerlink" title="1、两种开发模式"></a>1、两种开发模式</h1><p>  开发模式：代码编译自动化运行<br>  生产模式：代码编译优化输出</p><h1 id="2、webpack基本功能"><a href="#2、webpack基本功能" class="headerlink" title="2、webpack基本功能"></a>2、webpack基本功能</h1><p>  开发模式：可以编译es moudule语法<br>  生产模式：可以编译es moudule语法，压缩js代码（terser）</p><h1 id="3、webpack配置文件"><a href="#3、webpack配置文件" class="headerlink" title="3、webpack配置文件"></a>3、webpack配置文件</h1><p>通过配置项逐步对代码使用loader进行编译规范、解析、处理非js资源等 以及使用plugin插件对代码进行压缩、兼容性处理、样式单位转化等功能、</p><h1 id="五个核心概念"><a href="#五个核心概念" class="headerlink" title="五个核心概念"></a>五个核心概念</h1><h2 id="enter"><a href="#enter" class="headerlink" title="enter"></a>enter</h2><p> 确定配置项入口文件</p><h2 id="output"><a href="#output" class="headerlink" title="output"></a>output</h2><p> 确定打包输出路径以及文件结构<br> 清空上一次打包文件防止代码沉积 （clear：true）</p><h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p> 预处理js等非js资源（解析）需要安装各种loader以及配置</p><h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><p> 对需要处理的文件资源优化（性能、体积、协助编译（px转rem等）、代码规范esLint（webpack4中以loader形式引入）、本地静态资源图片、css压缩、）<br> 可将css文件单独抽离文件夹使用link加载解决了页面初始化闪屏问题（原打包文件是将js、css等文件资源打包到了同一个文件中，所以在加载js时页面没有渲染，等加载完毕时在渲染css则页面突然闪屏）<br> 使用commen.js规范引入 其值是一个函数，使用时需在plugins中new操作处理</p><h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><p> 划分开发生产模式下操作</p><h1 id="devServer配置"><a href="#devServer配置" class="headerlink" title="devServer配置"></a>devServer配置</h1><p>使用server可指定编译地址端口号启动服务并在本地进行代码自动化更新（这里更新指的是重新编译，会对整体进行重新打包编译，随着项目逐渐变大更新速度会变慢，这里解决方法可以使用热更新，看相关优化中有提到HMR（hotModuleReplament））<br>webpack-dev-server<br>自动化编译时代码不会打包输出，所以打包路经文件夹下没有新的更新代码</p><h1 id="4、webpack脚本指令用法"><a href="#4、webpack脚本指令用法" class="headerlink" title="4、webpack脚本指令用法"></a>4、webpack脚本指令用法</h1><p> webpack直接打包输出<br> webpack Serve 启动开发服务器，内存编译打包没有输出</p>]]></content>
     
     
     <categories>
@@ -46,6 +21,31 @@
     <tags>
       
       <tag>webpack核心概念</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>webpack</title>
+    <link href="/2022/09/06/webpack/webpack%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/"/>
+    <url>/2022/09/06/webpack/webpack%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<h2 id="sourceMap"><a href="#sourceMap" class="headerlink" title="sourceMap"></a>sourceMap</h2><p>背景：当页面报错时页面输出错误位置为编译后的位置，如果代码量大则不好定位编译打包前源代码位置，此时就需要其对源代码生成映射关系快速定位错误行和列<br>源代码映射<br>配置项为devtool<br>一般开发环境下使用cheap-module-source-map：打包编译速度快，只包含行映射<br>生产环境下使用source-map包含行列映射，缺点是打包编译速度更慢</p><h2 id="HMR（HotModuleeReplacement）减少打包构建速度"><a href="#HMR（HotModuleeReplacement）减少打包构建速度" class="headerlink" title="HMR（HotModuleeReplacement）减少打包构建速度"></a>HMR（HotModuleeReplacement）减少打包构建速度</h2><p>安装后不会重新对整体项目进行编译而会只对更新过的模块进行编译从而提高构建速度<br>配置： devServer:{hot:true}<br>相对应的style-css已经默认的增加了HMR，但是js还没有，所以就需要我们自己手动去调用<br>module.hot.accept(‘需要HMR的文件路径’，function(){<br>    此回调可以在文件变化后做一些相对应处理<br>})<br>，如果较多就循环文件数组调用；</p><p>在vue、react中提供了相关loader去统一处理了所以不用关心，后期会对框架实现原理去做一个了解</p><h2 id="oneOf配置项"><a href="#oneOf配置项" class="headerlink" title="oneOf配置项"></a>oneOf配置项</h2><p>我们的loader中有多个loader组成，当对每一个文件进行处理的时候就会询问每一个loader，所以比较耗费性能，这时oneOf诞生，当对loader组进行选配编译时命中后其后面的loader将不会重复询问，即找到自身所对应的loader后就结束不会继续往后寻找</p><h2 id="include-x2F-exclude"><a href="#include-x2F-exclude" class="headerlink" title="include&#x2F;exclude"></a>include&#x2F;exclude</h2><p>只处理该属性下的文件&#x2F;不处理该属性下的文件</p><h2 id="Tree-ShaShaking"><a href="#Tree-ShaShaking" class="headerlink" title="Tree ShaShaking"></a>Tree ShaShaking</h2><p>通常用来移除js中无用代码（依赖 ES Module）</p><h2 id="bable重复定义"><a href="#bable重复定义" class="headerlink" title="bable重复定义"></a>bable重复定义</h2><p>@babel&#x2F;plugin-transfrom-runtime<br>当bable编译文件时会生成一些辅助代码，项目变大时这些代码就会累积多了，引用次插件就可以每次都从runtime中拿去定义值，有点像公共组件提出的样子</p><h2 id="code-split"><a href="#code-split" class="headerlink" title="code split"></a>code split</h2><p>当我们打包代码时会将代码打包到一个文件当中从而加载体积就会变大<br>场景：如果我只需要对首页文件进行渲染，而其他文件暂时不用就可以将首页代码切出单独编译打包从而提升单个文件加载性能。所以引入code split 之后就可以使用按需加载了</p><h3 id="多入口"><a href="#多入口" class="headerlink" title="多入口"></a>多入口</h3><p>使用enter配置多入口文件 output使用[name].js对输出文件以输入文件名命名，</p><h3 id="抽离公共模块"><a href="#抽离公共模块" class="headerlink" title="抽离公共模块"></a>抽离公共模块</h3><p>使用splitchunks开启提取公共组件</p><h3 id="多入口按需加载"><a href="#多入口按需加载" class="headerlink" title="多入口按需加载"></a>多入口按需加载</h3><p> !<br> import动态导入：会将动态导入的代码文件分割（拆分成单独模块），在需要使用的时候自动加载<br> <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-keyword">import</span>(<span class="hljs-string">&#x27;方法文件路径&#x27;</span>).<span class="hljs-keyword">then</span>(<span class="hljs-function"><span class="hljs-params">(res)</span>=&gt;</span>&#123;<br>  <span class="hljs-regexp">//</span>加载成功收到res为当前路径下暴漏的方法<br>  res.fn()<br>&#125;).<span class="hljs-keyword">catch</span>(<span class="hljs-function"><span class="hljs-params">(err)</span>=&gt;</span>&#123;<br>   console.log(err)<br>&#125;)<br></code></pre></td></tr></table></figure></p><h1 id="webpack-总结"><a href="#webpack-总结" class="headerlink" title="webpack 总结"></a>webpack 总结</h1><h2 id="1、提升开发体验"><a href="#1、提升开发体验" class="headerlink" title="1、提升开发体验"></a>1、提升开发体验</h2><p>  soucerMap</p><h2 id="2、提升webpack打包构建速度"><a href="#2、提升webpack打包构建速度" class="headerlink" title="2、提升webpack打包构建速度"></a>2、提升webpack打包构建速度</h2><h2 id="3、减少代码体积"><a href="#3、减少代码体积" class="headerlink" title="3、减少代码体积"></a>3、减少代码体积</h2><h2 id="4、优化代码性能"><a href="#4、优化代码性能" class="headerlink" title="4、优化代码性能"></a>4、优化代码性能</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>webpack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>webpack 相关优化</tag>
       
     </tags>
     

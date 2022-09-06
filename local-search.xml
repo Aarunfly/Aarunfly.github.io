@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>webpack</title>
+    <link href="/2022/09/06/webpack/sourcemap/"/>
+    <url>/2022/09/06/webpack/sourcemap/</url>
+    
+    <content type="html"><![CDATA[<p>背景：当页面报错时页面输出错误位置为编译后的位置，如果代码量大则不好定位编译打包前源代码位置，此时就需要其对源代码生成映射关系快速定位错误行和列<br>源代码映射<br>配置项为devtool<br>一般开发环境下使用cheap-module-source-map：打包编译速度快，只包含行映射<br>生产环境下使用source-map包含行列映射，缺点是打包编译速度更慢</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>webpack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>webpack sourcemap 作用以及配置项</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>webpack</title>
+    <link href="/2022/09/06/webpack/webpack/"/>
+    <url>/2022/09/06/webpack/webpack/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1、两种开发模式"><a href="#1、两种开发模式" class="headerlink" title="1、两种开发模式"></a>1、两种开发模式</h1><p>  开发模式：代码编译自动化运行<br>  生产模式：代码编译优化输出</p><h1 id="2、webpack基本功能"><a href="#2、webpack基本功能" class="headerlink" title="2、webpack基本功能"></a>2、webpack基本功能</h1><p>  开发模式：可以编译es moudule语法<br>  生产模式：可以编译es moudule语法，压缩js代码</p><h1 id="3、webpack配置文件"><a href="#3、webpack配置文件" class="headerlink" title="3、webpack配置文件"></a>3、webpack配置文件</h1><p>通过配置项逐步对代码使用loader进行编译规范、解析、处理非js资源等 以及使用plugin插件对代码进行压缩、兼容性处理、样式单位转化等功能、</p><h1 id="五个核心概念"><a href="#五个核心概念" class="headerlink" title="五个核心概念"></a>五个核心概念</h1><h2 id="enter"><a href="#enter" class="headerlink" title="enter"></a>enter</h2><p> 确定配置项入口文件</p><h2 id="output"><a href="#output" class="headerlink" title="output"></a>output</h2><p> 确定打包输出路径以及文件结构<br> 清空上一次打包文件防止代码沉积 （clear：true）</p><h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p> 预处理js等非js资源（解析）需要安装各种loader以及配置</p><h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><p> 对需要处理的文件资源优化（性能、体积、协助编译（px转rem等）、代码规范esLint（webpack4中以loader形式引入）、本地静态资源图片、css压缩、）<br> 可将css文件单独抽离文件夹使用link加载解决了页面初始化闪屏问题（原打包文件是将js、css等文件资源打包到了同一个文件中，所以在加载js时页面没有渲染，等加载完毕时在渲染css则页面突然闪屏）<br> 使用commen.js规范引入 其值是一个函数，使用时需在plugins中new操作处理</p><h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><p> 划分开发生产模式下操作</p><h1 id="devServer配置"><a href="#devServer配置" class="headerlink" title="devServer配置"></a>devServer配置</h1><p>使用server可指定编译地址端口号启动服务并在本地进行代码热更新（自动化）<br>webpack-dev-server<br>自动化编译时代码不会打包输出，所以打包路经文件夹下没有新的更新代码</p><h1 id="4、webpack脚本指令用法"><a href="#4、webpack脚本指令用法" class="headerlink" title="4、webpack脚本指令用法"></a>4、webpack脚本指令用法</h1><p> webpack直接打包输出<br> webpack Serve 启动开发服务器，内存编译打包没有输出</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>webpack</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>webpack核心概念</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>盘EventBus</title>
     <link href="/2022/09/01/js%E6%89%8B%E5%86%99/EvenBus/"/>
     <url>/2022/09/01/js%E6%89%8B%E5%86%99/EvenBus/</url>

@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>盘Promise</title>
+    <link href="/2022/09/11/js%E6%89%8B%E5%86%99/promise/"/>
+    <url>/2022/09/11/js%E6%89%8B%E5%86%99/promise/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 手写promise.all</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">Array</span>&#125; promises </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@returns</span> </span><br><span class="hljs-comment"> */</span><br><span class="hljs-title class_">Promise</span>.<span class="hljs-property">myAll</span>= <span class="hljs-function">(<span class="hljs-params">promises</span>) =&gt;</span> &#123; <br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res, rej</span>) =&gt;</span> &#123; <br>        <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">let</span> result = [];<br>        <span class="hljs-keyword">const</span> len = promises.<span class="hljs-property">length</span>;<br>        <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) &#123; <br>            <span class="hljs-keyword">return</span> [];<br>        &#125;<br>        promises.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">p,i</span>) =&gt;</span> &#123;<br>            <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(p).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123; <br>                count += <span class="hljs-number">1</span>;<br>                result[i] = res;<br>                <span class="hljs-keyword">if</span> (count === len) &#123; <br>                <span class="hljs-title function_">res</span>(result)<br>                &#125;<br>            &#125;).<span class="hljs-title function_">catch</span>(rej)<br>        &#125;);<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>js手写</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>手写</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>webpack</title>
     <link href="/2022/09/06/webpack/webpack/"/>
     <url>/2022/09/06/webpack/webpack/</url>

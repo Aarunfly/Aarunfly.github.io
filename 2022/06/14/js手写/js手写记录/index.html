@@ -24,7 +24,7 @@
 <meta property="og:description" content="从理解到落地深拷贝123456789101112131415161718192021222324252627282930313233function deepClone(obj,map &#x3D; new Map())&amp;#123;&#x2F;&#x2F;typeof（只能检测原始值） 检测原始值返回if(typeof obj !&#x3D;&#x3D; &amp;#x27;Object&amp;#x27; )&amp;#123;return obj;&amp;#125;&#x2F;&#x2F;m">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-14T08:23:23.000Z">
-<meta property="article:modified_time" content="2022-08-31T00:45:00.574Z">
+<meta property="article:modified_time" content="2022-09-15T01:04:04.655Z">
 <meta property="article:author" content="Aarunfly">
 <meta property="article:tag" content="手写">
 <meta name="twitter:card" content="summary_large_image">
@@ -217,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.1k 字
+          5.3k 字
         
       </span>
     
@@ -228,7 +228,7 @@
         
         
         
-          43 分钟
+          45 分钟
         
       </span>
     
@@ -303,7 +303,7 @@
 <h2 id="手写-call"><a href="#手写-call" class="headerlink" title="手写 call"></a>手写 call</h2><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs maxima">Function.prototype.myCall(ctx,...<span class="hljs-built_in">args</span>)&#123;<br><span class="hljs-built_in">let</span> fn = symbol();<br><span class="hljs-built_in">let</span> <span class="hljs-built_in">context</span> = ctx?Object(ctx):window;<br><span class="hljs-built_in">context</span>.fn = this;<br><span class="hljs-built_in">let</span> res =<span class="hljs-built_in">args</span>.<span class="hljs-built_in">length</span>?<span class="hljs-built_in">context</span>.fn(...<span class="hljs-built_in">args</span>):<span class="hljs-built_in">context</span>.fn();//判断有没有传参<br><span class="hljs-built_in">delete</span> <span class="hljs-built_in">context</span>.fn;<br><span class="hljs-built_in">return</span> res<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="手写-apply"><a href="#手写-apply" class="headerlink" title="手写 apply"></a>手写 apply</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title class_">Function</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-title function_">myApply</span>(<span class="hljs-params">ctx,...args</span>)&#123;<br><span class="hljs-keyword">if</span>(!<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(args))&#123;<br>   <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27; apply need Array&#x27;</span>)<br>&#125;<br><span class="hljs-keyword">let</span> fn = <span class="hljs-title function_">symbol</span>();<br><span class="hljs-keyword">let</span> context = ctx?<span class="hljs-title class_">Object</span>(ctx):<span class="hljs-variable language_">window</span>;<br>context.<span class="hljs-property">fn</span> = <span class="hljs-variable language_">this</span>;<br><span class="hljs-keyword">let</span> res =args.<span class="hljs-property">length</span>?context.<span class="hljs-title function_">fn</span>(...args):context.<span class="hljs-title function_">fn</span>();<span class="hljs-comment">//判断有没有传参</span><br><span class="hljs-keyword">delete</span> context.<span class="hljs-property">fn</span>;<br><span class="hljs-keyword">return</span> res<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h2 id="手写new"><a href="#手写new" class="headerlink" title="手写new"></a>手写new</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">myNew</span>(<span class="hljs-params">content</span>)&#123;<br>  <span class="hljs-keyword">const</span> obj = &#123;&#125;;<br>  <span class="hljs-keyword">let</span> that = <span class="hljs-variable language_">this</span>;<br>  obj.<span class="hljs-property">__proto__</span> = content.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>;<br>  <span class="hljs-keyword">let</span> res = content.<span class="hljs-title function_">call</span>(that,...<span class="hljs-variable language_">arguments</span>);<br>  <span class="hljs-keyword">return</span> typeOf res === <span class="hljs-string">&#x27;Object&#x27;</span>?<span class="hljs-attr">res</span>:obj;<br>&#125;<br></code></pre></td></tr></table></figure>
               
             </div>
             <hr/>

@@ -16,22 +16,22 @@
   <meta name="author" content="Aarunfly">
   <meta name="keywords" content="">
   
-    <meta name="description" content="123456789101112131415161718192021222324&#x2F;** * 手写promise.all * @param &amp;#123;Array&amp;#125; promises  * @returns  *&#x2F;Promise.myAll&#x3D; (promises) &#x3D;&gt; &amp;#123;     return new Promise((res, rej) &#x3D;&gt; &amp;#123;">
+    <meta name="description" content="迭代器 iterator就是个遍厉器 通过next();只有数组类型有，在其属性中可以看到 1Symbol(Symbol.iterator): ƒ values()  其作用可以遍历数组 生成器 generator通过一下方式声明 12345function*  fn()&amp;#123;   console.log(1)  let a &#x3D; yield 1;  yield2;&amp;#125; new一个生成">
 <meta property="og:type" content="article">
-<meta property="og:title" content="盘Promise">
-<meta property="og:url" content="http://example.com/2022/09/11/js%E6%89%8B%E5%86%99/promise/index.html">
+<meta property="og:title" content="js基础">
+<meta property="og:url" content="http://example.com/2022/09/15/js%E5%9F%BA%E7%A1%80/ES6%E7%94%9F%E6%88%90%E5%99%A8dan%E8%BF%AD%E4%BB%A3%E5%99%A8/index.html">
 <meta property="og:site_name" content="伊家飞">
-<meta property="og:description" content="123456789101112131415161718192021222324&#x2F;** * 手写promise.all * @param &amp;#123;Array&amp;#125; promises  * @returns  *&#x2F;Promise.myAll&#x3D; (promises) &#x3D;&gt; &amp;#123;     return new Promise((res, rej) &#x3D;&gt; &amp;#123;">
+<meta property="og:description" content="迭代器 iterator就是个遍厉器 通过next();只有数组类型有，在其属性中可以看到 1Symbol(Symbol.iterator): ƒ values()  其作用可以遍历数组 生成器 generator通过一下方式声明 12345function*  fn()&amp;#123;   console.log(1)  let a &#x3D; yield 1;  yield2;&amp;#125; new一个生成">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-11T02:00:23.000Z">
-<meta property="article:modified_time" content="2022-09-13T03:31:17.055Z">
+<meta property="article:published_time" content="2022-09-15T04:43:51.000Z">
+<meta property="article:modified_time" content="2022-09-16T03:40:32.526Z">
 <meta property="article:author" content="Aarunfly">
-<meta property="article:tag" content="手写">
+<meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>盘Promise - 伊家飞</title>
+  <title>js基础 - 伊家飞</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="盘Promise"></span>
+            <span id="subtitle" data-typed-text="js基础"></span>
           
         </div>
 
@@ -205,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-11 10:00" pubdate>
-          2022年9月11日 上午
+        <time datetime="2022-09-15 12:43" pubdate>
+          2022年9月15日 下午
         </time>
       </span>
     
@@ -217,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          425 字
+          737 字
         
       </span>
     
@@ -228,7 +228,7 @@
         
         
         
-          4 分钟
+          7 分钟
         
       </span>
     
@@ -274,43 +274,28 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">盘Promise</h1>
+            <h1 style="display: none">js基础</h1>
             
             <div class="markdown-body">
               
-              <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 手写promise.all</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">Array</span>&#125; promises </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@returns</span> </span><br><span class="hljs-comment"> */</span><br><span class="hljs-title class_">Promise</span>.<span class="hljs-property">myAll</span>= <span class="hljs-function">(<span class="hljs-params">promises</span>) =&gt;</span> &#123; <br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res, rej</span>) =&gt;</span> &#123; <br>        <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">let</span> result = [];<br>        <span class="hljs-keyword">const</span> len = promises.<span class="hljs-property">length</span>;<br>        <span class="hljs-keyword">if</span> (len === <span class="hljs-number">0</span>) &#123; <br>            <span class="hljs-keyword">return</span> [];<br>        &#125;<br>        promises.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">p,i</span>) =&gt;</span> &#123;<br>            <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(p).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123; <br>                count += <span class="hljs-number">1</span>;<br>                result[i] = res;<br>                <span class="hljs-keyword">if</span> (count === len) &#123; <br>                <span class="hljs-title function_">res</span>(result)<br>                &#125;<br>            &#125;).<span class="hljs-title function_">catch</span>(rej)<br>        &#125;);<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h1 id="迭代器-iterator"><a href="#迭代器-iterator" class="headerlink" title="迭代器 iterator"></a>迭代器 iterator</h1><p>就是个遍厉器 通过next();只有数组类型有，在其属性中可以看到</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">Symbol</span><span class="hljs-params">(Symbol.iterator)</span></span>: ƒ <span class="hljs-built_in">values</span>() <br></code></pre></td></tr></table></figure>
+<p>其作用可以遍历数组</p>
+<h1 id="生成器-generator"><a href="#生成器-generator" class="headerlink" title="生成器 generator"></a>生成器 generator</h1><p>通过一下方式声明</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span>*  <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>)&#123;<br>   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>)<br>  <span class="hljs-keyword">let</span> a = <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>;<br>  yield2;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>new一个生成器函数 返回一个生成器对象 可以通过.next()的方式调用 遇到yield就将函数执行挂起直到遇到下一个next的执行<br>作用就是可以将函数执行挂起，通过这个性质可以用于异步函数执行</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">function</span>*  <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>)&#123;<br>   showLoading()<br>   yield getData();<br>   hideLoading();<br>   <span class="hljs-keyword">return</span>;<br>&#125;<br>let gobj = <span class="hljs-keyword">new</span> fn();<br><br>gobj.next()<span class="hljs-comment">//此时showLoading执行 getData执行 遇到yield后之后的语句不再执行知道遇到下一个next的调用</span><br><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">showLoading</span> (<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;show&#x27;</span>)<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getData</span> (<span class="hljs-params"></span>)&#123;<br>    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;<br>      <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;获取到数据&#x27;</span>)<br>      <span class="hljs-comment">//当前获取到数据将关闭loading</span><br>      gobj.next()<span class="hljs-comment">//执行hideLoading 关闭loading </span><br>    &#125;,<span class="hljs-number">1000</span>)<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">hideLoading</span> (<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;hide&#x27;</span>)<br>&#125;<br><br></code></pre></td></tr></table></figure>
               
             </div>
             <hr/>
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/js%E6%89%8B%E5%86%99/" class="category-chain-item">js手写</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%89%8B%E5%86%99/">#手写</a>
+        <a href="/tags/ES6/">#ES6</a>
       
     </div>
   
@@ -322,8 +307,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>盘Promise</div>
-      <div>http://example.com/2022/09/11/js手写/promise/</div>
+      <div>js基础</div>
+      <div>http://example.com/2022/09/15/js基础/ES6生成器dan迭代器/</div>
     </div>
     <div class="license-meta">
       
@@ -335,7 +320,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月11日</div>
+          <div>2022年9月15日</div>
         </div>
       
       
@@ -365,9 +350,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/15/js%E5%9F%BA%E7%A1%80/js%E5%9F%BA%E7%A1%80/" title="js基础">
+                      <a href="/2022/09/16/%E7%AE%97%E6%B3%95/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" title="算法小探">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">js基础</span>
+                        <span class="hidden-mobile">算法小探</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -375,8 +360,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/06/webpack/webpack/" title="webpack">
-                        <span class="hidden-mobile">webpack</span>
+                      <a href="/2022/09/15/js%E5%9F%BA%E7%A1%80/js%E5%9F%BA%E7%A1%80/" title="js基础">
+                        <span class="hidden-mobile">js基础</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
